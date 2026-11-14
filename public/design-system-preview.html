@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>AX6UUU — Design System Specification</title>
+    <style>
+      :root {
+        --obsidian: #08090D;
+        --charcoal: #111318;
+        --surface: #151821;
+        --surface-hover: #1c202c;
+        --electric: #263BFF;
+        --electric-light: #536BFF;
+        --offwhite: #F4F4F6;
+        --muted: #92949F;
+        --border-subtle: rgba(244, 244, 246, 0.08);
+      }
+
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        background: var(--obsidian);
+        color: var(--offwhite);
+        font-family: "Inter", sans-serif;
+        padding: 48px 24px;
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+      }
+      .container { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 48px; }
+      .section { display: flex; flex-direction: column; gap: 20px; }
+      .section-label {
+        font-family: ui-monospace, monospace;
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+        border-bottom: 1px solid var(--border-subtle);
+        padding-bottom: 8px;
+      }
+
+      .logo-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 20px;
+      }
+      .logo-card {
+        background: var(--charcoal);
+        border: 1px solid var(--border-subtle);
+        border-radius: 14px;
+        padding: 32px 24px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 18px;
+        text-align: center;
+      }
+      .logo-card.obsidian-bg {
+        background: var(--obsidian);
+        border-color: rgba(255, 255, 255, 0.12);
+      }
+      .logo-card.electric-bg {
+        background: var(--electric);
+        border-color: transparent;
+      }
+      .logo-img { max-width: 380px; width: 100%; height: auto; }
+
+      .color-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 16px;
+      }
+      .color-chip {
+        background: var(--charcoal);
+        border: 1px solid var(--border-subtle);
+        border-radius: 8px;
+        padding: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .color-swatch {
+        height: 48px;
+        border-radius: 6px;
+        border: 1px solid rgba(255,255,255,0.06);
+      }
+      .color-name { font-size: 13px; font-weight: 500; }
+      .color-val { font-family: ui-monospace, monospace; font-size: 11px; color: var(--muted); }
+
+      .btn-row { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 44px;
+        padding: 0 20px;
+        border-radius: 8px;
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.2s;
+        border: none;
+      }
+      .btn-primary {
+        background: var(--electric);
+        color: var(--offwhite);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+      }
+      .btn-primary:hover { background: var(--electric-light); }
+      .btn-solid {
+        background: var(--offwhite);
+        color: var(--obsidian);
+      }
+      .btn-secondary {
+        background: var(--charcoal);
+        color: var(--offwhite);
+        border: 1px solid var(--border-subtle);
+      }
+      .btn-secondary:hover { background: var(--surface-hover); }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 10px;
+        border-radius: 4px;
+        font-family: ui-monospace, monospace;
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        background: var(--surface);
+        border: 1px solid var(--border-subtle);
+        color: var(--muted);
+      }
+      .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--electric); }
+
+      .meta-caption {
+        font-family: ui-monospace, monospace;
+        font-size: 11px;
+        color: var(--muted);
+        letter-spacing: 0.05em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="section">
+        <span class="section-label">01 — Brand Wordmark Rendering & Visibility</span>
+        <div class="logo-grid">
+          <!-- Card 1: Default Off-white on Charcoal -->
+          <div class="logo-card">
+            <img src="/brand/ax6uuu-wordmark.svg" class="logo-img" alt="AX6UUU Wordmark (Off-white)" />
+            <span class="meta-caption">Default Off-white (#F4F4F6) on Charcoal</span>
+          </div>
+
+          <!-- Card 2: Electric Blue on Charcoal -->
+          <div class="logo-card">
+            <img src="/brand/ax6uuu-wordmark-electric.svg" class="logo-img" alt="AX6UUU Wordmark (Electric Blue)" />
+            <span class="meta-caption">Electric Blue (#263BFF) Accent on Charcoal</span>
+          </div>
+
+          <!-- Card 3: Default Off-white on Obsidian Baseline -->
+          <div class="logo-card obsidian-bg">
+            <img src="/brand/ax6uuu-wordmark.svg" class="logo-img" alt="AX6UUU Wordmark on Obsidian" />
+            <span class="meta-caption">Default Off-white on Obsidian Baseline (#08090D)</span>
+          </div>
+
+          <!-- Card 4: Off-white on Electric Blue Background (Original Visual Reference Match) -->
+          <div class="logo-card electric-bg">
+            <img src="/brand/ax6uuu-wordmark.svg" class="logo-img" alt="AX6UUU Wordmark on Electric Blue" />
+            <span class="meta-caption" style="color: rgba(255,255,255,0.85);">Off-white on Electric Blue Backdrop (Reference Match)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <span class="section-label">02 — Design Tokens & Color Ramp</span>
+        <div class="color-grid">
+          <div class="color-chip">
+            <div class="color-swatch" style="background: #08090D;"></div>
+            <div class="color-name">Obsidian</div>
+            <div class="color-val">#08090D</div>
+          </div>
+          <div class="color-chip">
+            <div class="color-swatch" style="background: #111318;"></div>
+            <div class="color-name">Charcoal</div>
+            <div class="color-val">#111318</div>
+          </div>
+          <div class="color-chip">
+            <div class="color-swatch" style="background: #151821;"></div>
+            <div class="color-name">Surface</div>
+            <div class="color-val">#151821</div>
+          </div>
+          <div class="color-chip">
+            <div class="color-swatch" style="background: #263BFF;"></div>
+            <div class="color-name">Electric Blue</div>
+            <div class="color-val">#263BFF</div>
+          </div>
+          <div class="color-chip">
+            <div class="color-swatch" style="background: #536BFF;"></div>
+            <div class="color-name">Electric Light</div>
+            <div class="color-val">#536BFF</div>
+          </div>
+          <div class="color-chip">
+            <div class="color-swatch" style="background: #F4F4F6;"></div>
+            <div class="color-name">Off-white</div>
+            <div class="color-val">#F4F4F6</div>
+          </div>
+          <div class="color-chip">
+            <div class="color-swatch" style="background: #92949F;"></div>
+            <div class="color-name">Muted Grey</div>
+            <div class="color-val">#92949F</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <span class="section-label">03 — Foundational Components & Interactive Controls</span>
+        <div class="btn-row">
+          <button class="btn btn-primary">Primary (Electric)</button>
+          <button class="btn btn-solid">Solid (Offwhite)</button>
+          <button class="btn btn-secondary">Secondary (Charcoal)</button>
+          <div class="tag"><span class="dot"></span> 4K Ultra HD</div>
+          <div class="tag">Color Grading</div>
+          <div class="tag">Sound Design</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
