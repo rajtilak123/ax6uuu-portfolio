@@ -63,29 +63,10 @@ export const Hero: React.FC<HeroProps> = ({
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="min-h-[calc(100vh-4.5rem)] sm:min-h-[calc(100vh-5rem)] min-h-[calc(100svh-4.5rem)] sm:min-h-[calc(100svh-5rem)] flex flex-col justify-between pt-4 pb-8 sm:pt-6 sm:pb-12 lg:pt-8 lg:pb-14"
+            className="min-h-[calc(100vh-4.5rem)] sm:min-h-[calc(100vh-5rem)] min-h-[calc(100svh-4.5rem)] sm:min-h-[calc(100svh-5rem)] flex flex-col justify-center py-10 sm:py-14"
           >
-            {/* Top Meta Bar: Quiet Availability + Context Coordinates */}
-            <motion.div
-              variants={itemVariants}
-              className="flex items-center justify-between border-b border-black/[0.06] pb-3.5 text-xs font-mono select-none"
-            >
-              <div className="flex items-center gap-2 text-[#5E606E] text-[11px] tracking-wide">
-                <span className="w-1.5 h-1.5 rounded-full bg-electric animate-pulse" />
-                <span>Available for Projects</span>
-              </div>
-
-              <div className="hidden sm:flex items-center gap-2.5 text-[#8E909E] text-[11px] tracking-wider uppercase">
-                <span>Ashutosh Sahu</span>
-                <span className="text-black/15">•</span>
-                <span>Video Editor</span>
-                <span className="text-black/15">•</span>
-                <span>2026</span>
-              </div>
-            </motion.div>
-
-            {/* Refined Headline Block with Clear Stack Hierarchy */}
-            <div className="flex flex-col gap-5 sm:gap-6 max-w-5xl my-auto py-6 sm:py-8">
+            {/* Headline Block with Clear Stack Hierarchy */}
+            <div className="flex flex-col gap-5 sm:gap-6 max-w-5xl py-6 sm:py-8">
               <motion.h1
                 variants={itemVariants}
                 className="font-display text-[clamp(2.5rem,5.7vw,5.125rem)] leading-[1.06] tracking-[-0.03em] font-bold text-[#0E0F14]"
@@ -124,9 +105,6 @@ export const Hero: React.FC<HeroProps> = ({
                 </Button>
               </motion.div>
             </div>
-
-            {/* Empty anchor spacer to balance flex distribution */}
-            <div className="h-2 sm:h-4" aria-hidden="true" />
           </motion.div>
         </Container>
       </div>

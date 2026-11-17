@@ -97,14 +97,6 @@ export const FreeSampleCta: React.FC = () => {
 
           {/* Central Campaign Content */}
           <div className="relative z-10 flex flex-col items-center text-center max-w-2xl mx-auto">
-            {/* Editorial Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.08] border border-white/12 text-white/80 font-mono text-xs select-none mb-6">
-              <span className="w-1.5 h-1.5 rounded-full bg-electric animate-pulse" />
-              <span>FREE SAMPLE WORKFLOW</span>
-              <span className="text-white/30">•</span>
-              <span className="text-electric-light">RISK-FREE</span>
-            </div>
-
             <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-white leading-[1.12]">
               Ready To Make Your Next Video More Engaging?
             </h2>
@@ -124,11 +116,6 @@ export const FreeSampleCta: React.FC = () => {
               <span>Start With One Video</span>
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-200 group-hover:translate-x-1" />
             </a>
-
-            {/* Supporting Micro-copy */}
-            <p className="font-mono text-xs sm:text-sm text-white/50 mt-4 sm:mt-5 tracking-wide select-none">
-              Let's create something worth watching.
-            </p>
           </div>
         </motion.div>
       </Container>

@@ -221,52 +221,18 @@ const ShortFormCard: React.FC<ShortFormCardProps> = ({
             onError={() => setLoadError(true)}
           />
         )}
-
-        {/* Top Overlay: Subtle, non-intrusive metadata strip */}
-        <div className="absolute top-3.5 inset-x-3.5 z-20 flex items-center justify-between pointer-events-none">
-          <span className="inline-flex items-center px-2 py-0.5 rounded-[4px] bg-[#0E0F14]/70 backdrop-blur-md text-[10px] font-mono tracking-widest text-white/90 uppercase border border-white/10 shadow-xs">
-            {project.index}
-          </span>
-
-          {shouldPlay ? (
-            <motion.span
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.2 }}
-              className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-[4px] bg-[#0E0F14]/70 backdrop-blur-md text-[10px] font-mono text-white/90 border border-white/10 shadow-xs"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-electric animate-pulse" />
-              <span>Live Cut</span>
-            </motion.span>
-          ) : (
-            <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 inline-flex items-center gap-1 px-2 py-0.5 rounded-[4px] bg-[#0E0F14]/70 backdrop-blur-md text-[10px] font-mono text-white/80 border border-white/10">
-              <span>Preview</span>
-            </span>
-          )}
-        </div>
       </div>
 
-      {/* Exterior Clean Information Row (Placed below video frame, free of overlay clutter) */}
-      <div className="mt-3 flex flex-col gap-1 px-0.5">
-        <div className="flex items-center justify-between text-xs">
-          <div className="flex items-center gap-2">
-            <span className="font-mono text-xs font-semibold text-electric tracking-wide">
-              {project.index} —
-            </span>
-            <h3 className="font-display text-sm sm:text-base font-semibold tracking-tight text-[#0E0F14] group-hover:text-electric transition-colors duration-200">
-              {project.title}
-            </h3>
-          </div>
+      {/* Exterior Information Row */}
+      <div className="mt-3 flex items-center justify-between text-xs px-0.5">
+        <h3 className="font-display text-sm sm:text-base font-semibold tracking-tight text-[#0E0F14] group-hover:text-electric transition-colors duration-200">
+          {project.title}
+        </h3>
 
-          <span className="font-mono text-[11px] text-[#8E909E] group-hover:text-electric flex items-center gap-1 transition-colors">
-            <span>Watch</span>
-            <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </span>
-        </div>
-
-        <p className="font-body text-xs text-[#5E606E] leading-normal line-clamp-1">
-          {project.categorySubtitle}
-        </p>
+        <span className="font-mono text-[11px] text-[#8E909E] group-hover:text-electric flex items-center gap-1 transition-colors">
+          <span>Watch</span>
+          <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        </span>
       </div>
     </motion.div>
   )
@@ -366,35 +332,13 @@ const LongFormCard: React.FC<LongFormCardProps> = ({
         {/* Subtle Vignette Gradient for Legibility */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#0E0F14]/85 via-transparent to-[#0E0F14]/30 pointer-events-none" />
 
-        {/* Top Overlay Badge */}
-        <div className="absolute top-4 inset-x-4 sm:top-5 sm:inset-x-5 z-20 flex items-center justify-between pointer-events-none">
-          <span className="inline-flex items-center px-2.5 py-1 rounded-[4px] bg-[#0E0F14]/75 backdrop-blur-md text-[11px] font-mono tracking-widest text-white uppercase border border-white/10 shadow-xs">
-            04 // FEATURED LONG-FORM
-          </span>
-          {shouldPlay ? (
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-[4px] bg-[#0E0F14]/75 backdrop-blur-md text-[10px] font-mono text-white border border-white/10 shadow-xs">
-              <span className="w-1.5 h-1.5 rounded-full bg-electric animate-pulse" />
-              <span>Live Cut</span>
-            </span>
-          ) : (
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-[4px] bg-white/10 backdrop-blur-md text-xs font-mono text-white/90">
-              <span>Full Cut</span>
-            </span>
-          )}
-        </div>
-
         {/* Bottom Overlay Title & Callout */}
         <div className="absolute inset-x-0 bottom-0 z-20 p-4 sm:p-6 bg-gradient-to-t from-[#0E0F14] via-[#0E0F14]/50 to-transparent flex items-end justify-between pointer-events-none">
-          <div className="flex flex-col gap-0.5 max-w-xl">
-            <span className="font-mono text-xs text-electric tracking-widest uppercase">
-              Documentary & Extended Narrative
-            </span>
-            <h3 className="font-display text-base sm:text-lg lg:text-xl font-medium tracking-tight text-white">
-              {project.title} — Long-Form Storytelling
-            </h3>
-          </div>
+          <h3 className="font-display text-base sm:text-lg lg:text-xl font-medium tracking-tight text-white max-w-xl">
+            {project.title}
+          </h3>
 
-          <div className="hidden sm:inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/15 backdrop-blur-sm text-white font-mono text-xs tracking-wider uppercase group-hover:bg-electric transition-colors">
+          <div className="hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-sm text-white font-mono text-xs tracking-wider uppercase group-hover:bg-electric transition-colors">
             <span>Watch Cut</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
           </div>
@@ -419,26 +363,15 @@ export const VideoGallery: React.FC<VideoGalleryProps> = ({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.55, ease: EASINGS.cinematic }}
-        className="w-full flex flex-col sm:flex-row sm:items-end justify-between pb-4 sm:pb-5 border-b border-black/[0.08] gap-3 select-none mb-8 sm:mb-10 max-w-[1050px] mx-auto"
+        className="w-full pb-4 sm:pb-5 border-b border-black/[0.08] select-none mb-8 sm:mb-10 max-w-[1050px] mx-auto"
       >
         <div className="flex flex-col gap-1.5">
-          <div className="flex items-center gap-3">
-            <h2 className="font-display text-2xl sm:text-3xl font-semibold tracking-tight text-[#0E0F14]">
-              FEATURED EDITS
-            </h2>
-            <span className="font-mono text-xs font-semibold text-electric bg-electric/10 px-2.5 py-0.5 rounded-[4px] tracking-wider uppercase">
-              01—03
-            </span>
-          </div>
+          <h2 className="font-display text-2xl sm:text-3xl font-semibold tracking-tight text-[#0E0F14]">
+            FEATURED EDITS
+          </h2>
           <p className="font-body text-xs sm:text-sm text-[#5E606E]">
             Short-form cuts crafted with intentional rhythm, sound design & pacing
           </p>
-        </div>
-
-        <div className="flex items-center gap-3 text-xs font-mono text-[#8E909E] tracking-wider uppercase">
-          <span className="hidden sm:inline">Simultaneous inline previews</span>
-          <span className="hidden sm:inline text-black/20">•</span>
-          <span>Click to expand</span>
         </div>
       </motion.div>
 
@@ -456,33 +389,22 @@ export const VideoGallery: React.FC<VideoGalleryProps> = ({
         ))}
       </div>
 
-      {/* 3. Compact Long-Form Project 04 Section (850–900px centered) */}
+      {/* 3. Compact Long-Form Section (850–900px centered) */}
       <div className="mt-12 sm:mt-16 lg:mt-20 pt-8 sm:pt-12 border-t border-black/[0.08]">
         <motion.div
           initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.55, ease: EASINGS.cinematic }}
-          className="flex flex-col sm:flex-row sm:items-end justify-between pb-4 sm:pb-5 border-b border-black/[0.08] gap-3 select-none mb-8 sm:mb-10 max-w-[880px] mx-auto"
+          className="pb-4 sm:pb-5 border-b border-black/[0.08] select-none mb-8 sm:mb-10 max-w-[880px] mx-auto"
         >
           <div className="flex flex-col gap-1.5">
-            <div className="flex items-center gap-3">
-              <h2 className="font-display text-2xl sm:text-3xl font-semibold tracking-tight text-[#0E0F14]">
-                LONG-FORM STORYTELLING
-              </h2>
-              <span className="font-mono text-xs font-semibold text-electric bg-electric/10 px-2.5 py-0.5 rounded-[4px] tracking-wider uppercase">
-                04
-              </span>
-            </div>
+            <h2 className="font-display text-2xl sm:text-3xl font-semibold tracking-tight text-[#0E0F14]">
+              LONG-FORM STORYTELLING
+            </h2>
             <p className="font-body text-xs sm:text-sm text-[#5E606E]">
               Extended documentary structure, narrative pacing & audio-visual rhythm
             </p>
-          </div>
-
-          <div className="flex items-center gap-3 text-xs font-mono text-[#8E909E] tracking-wider uppercase">
-            <span>16:9 Landscape Cut</span>
-            <span className="text-black/20">•</span>
-            <span>Click to watch</span>
           </div>
         </motion.div>
 

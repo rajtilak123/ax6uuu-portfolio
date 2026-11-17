@@ -33,14 +33,7 @@ const ServiceRow: React.FC<ServiceRowProps> = ({ service, index }) => {
       aria-label={`Inquire about ${service.title}`}
     >
       <div className="grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-4 lg:gap-8 items-start">
-        {/* Column 1: Number & Index */}
-        <div className="md:col-span-1 flex items-center md:items-start gap-2 pt-0.5 select-none">
-          <span className="font-mono text-xs sm:text-sm font-semibold text-[#8E909E] group-hover:text-electric transition-colors tracking-widest">
-            {service.number} —
-          </span>
-        </div>
-
-        {/* Column 2: Title */}
+        {/* Column 1: Title */}
         <div className="md:col-span-4 flex items-center justify-between gap-3 pr-2">
           <h3 className="font-display text-lg sm:text-xl font-semibold tracking-tight text-[#0E0F14] group-hover:text-electric transition-colors duration-200">
             {service.title}
@@ -50,14 +43,14 @@ const ServiceRow: React.FC<ServiceRowProps> = ({ service, index }) => {
           </div>
         </div>
 
-        {/* Column 3: Description */}
-        <div className="md:col-span-4 pt-0.5">
+        {/* Column 2: Description */}
+        <div className="md:col-span-5 pt-0.5">
           <p className="font-body text-xs sm:text-sm text-[#5E606E] leading-relaxed">
             {service.description}
           </p>
         </div>
 
-        {/* Column 4: Quiet Capability Tags + Desktop Arrow Indicator */}
+        {/* Column 3: Quiet Capability Tags + Desktop Arrow Indicator */}
         <div className="md:col-span-3 flex items-start justify-between gap-3 pt-0.5">
           <div className="flex flex-wrap gap-1.5">
             {service.capabilities.map((capability) => (
@@ -92,25 +85,8 @@ export const Services: React.FC<ServicesProps> = ({ onSelectProject }) => {
         <div className="flex flex-col">
           {/* Two-Column Editorial Introduction: Left (Heading & Story) × Right (Cinematic Frame Visual) */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            {/* Left Column (7 Cols on desktop): Section Index + Expressive Headline + Supporting Copy */}
+            {/* Left Column (7 Cols on desktop): Expressive Headline + Supporting Copy */}
             <div className="lg:col-span-7 flex flex-col gap-3.5 sm:gap-4.5">
-              {/* Monospace Section Tag */}
-              <motion.div
-                initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 14 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.5, ease: EASINGS.cinematic }}
-                className="flex items-center gap-2.5 text-xs font-mono select-none"
-              >
-                <span className="font-semibold text-electric tracking-widest uppercase">
-                  03
-                </span>
-                <span className="text-black/20">/</span>
-                <span className="text-[#5E606E] tracking-widest uppercase">
-                  What I Do
-                </span>
-              </motion.div>
-
               {/* Main Section Heading */}
               <motion.h2
                 initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
@@ -177,12 +153,6 @@ export const Services: React.FC<ServicesProps> = ({ onSelectProject }) => {
                   decoding="async"
                 />
 
-                {/* Top Overlay Badge */}
-                <div className="absolute top-3.5 left-3.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#0E0F14]/80 backdrop-blur-md text-[10px] font-mono text-white uppercase border border-white/10 pointer-events-none select-none">
-                  <span className="w-1.5 h-1.5 rounded-full bg-electric" />
-                  <span>{featuredProject.index} // Selected Work</span>
-                </div>
-
                 {/* Subtle Center Action Indicator */}
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                   <div className="w-11 h-11 rounded-full bg-[#0E0F14]/80 backdrop-blur-md text-white border border-white/20 flex items-center justify-center opacity-85 group-hover:opacity-100 group-hover:scale-110 group-hover:bg-electric transition-all duration-300 shadow-md">
@@ -190,12 +160,8 @@ export const Services: React.FC<ServicesProps> = ({ onSelectProject }) => {
                   </div>
                 </div>
 
-                {/* Bottom Caption & Action Bar */}
-                <div className="absolute bottom-0 inset-x-0 p-3.5 sm:p-4 bg-gradient-to-t from-[#0E0F14]/90 via-[#0E0F14]/50 to-transparent flex items-center justify-between pointer-events-none select-none text-[11px] font-mono text-white/90">
-                  <span className="tracking-widest uppercase text-white/75">
-                    A FRAME FROM THE WORKS
-                  </span>
-
+                {/* Bottom Action Bar */}
+                <div className="absolute bottom-0 inset-x-0 p-3.5 sm:p-4 bg-gradient-to-t from-[#0E0F14]/90 via-[#0E0F14]/40 to-transparent flex items-center justify-end pointer-events-none select-none text-[11px] font-mono text-white/90">
                   <span className="flex items-center gap-1 text-white group-hover:text-electric-light transition-colors tracking-wider uppercase font-medium">
                     <span>VIEW PROJECT</span>
                     <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -211,20 +177,11 @@ export const Services: React.FC<ServicesProps> = ({ onSelectProject }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.55, ease: EASINGS.cinematic }}
-            className="mt-10 sm:mt-12 lg:mt-14 flex flex-col sm:flex-row sm:items-center justify-between pb-3.5 border-b border-black/[0.08] gap-2 select-none"
+            className="mt-10 sm:mt-12 lg:mt-14 pb-3.5 border-b border-black/[0.08] select-none"
           >
-            <div className="flex items-center gap-3">
-              <span className="font-mono text-xs font-semibold uppercase tracking-widest text-[#0E0F14]">
-                Editing Disciplines
-              </span>
-              <span className="font-mono text-xs text-[#8E909E] tracking-wider">
-                (01—03)
-              </span>
-            </div>
-
-            <div className="text-xs font-mono text-[#8E909E] tracking-wider uppercase">
-              Core Capabilities & Disciplines
-            </div>
+            <span className="font-mono text-xs font-semibold uppercase tracking-widest text-[#0E0F14]">
+              Editing Disciplines
+            </span>
           </motion.div>
 
           {/* Services Connected Ledger */}

@@ -4,6 +4,7 @@ import { ArrowUpRight, Menu, X } from 'lucide-react'
 import { Wordmark } from '../brand/Wordmark'
 import { BrandAvatar } from '../brand/BrandAvatar'
 import { Container } from '../layout/Container'
+import { HIRE_ME_WHATSAPP_URL } from '../../data/contact'
 
 interface NavLink {
   label: string
@@ -94,9 +95,11 @@ export const Navbar: React.FC = () => {
 
         {/* Right: HIRE ME CTA + Mobile Drawer Toggle */}
         <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-          {/* HIRE ME (Navigates to #contact) */}
+          {/* HIRE ME (Direct WhatsApp Link) */}
           <a
-            href="#contact"
+            href={HIRE_ME_WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 px-4 sm:px-5 py-2.5 rounded-full bg-[#0E0F14] text-white hover:bg-electric transition-colors duration-200 font-mono text-xs font-semibold tracking-wider uppercase shadow-[0_2px_8px_rgba(0,0,0,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric group"
           >
             <span>HIRE ME</span>
@@ -139,21 +142,18 @@ export const Navbar: React.FC = () => {
               ))}
             </nav>
 
-            {/* Mobile Actions: HIRE ME */}
+            {/* Mobile Actions: HIRE ME (Direct WhatsApp Link) */}
             <div className="flex flex-col gap-3 pt-2">
               <a
-                href="#contact"
+                href={HIRE_ME_WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
                 className="w-full inline-flex items-center justify-between px-5 py-3.5 rounded-full bg-[#0E0F14] text-white font-mono text-xs font-semibold tracking-wider uppercase hover:bg-electric transition-colors shadow-md"
               >
                 <span>HIRE ME</span>
                 <ArrowUpRight className="w-4 h-4" />
               </a>
-            </div>
-
-            <div className="pt-2 text-xs font-mono tracking-widest text-[#8E909E] uppercase flex items-center justify-between border-t border-black/[0.06]">
-              <span>ax6uuu • Ashutosh Sahu</span>
-              <span>2026</span>
             </div>
           </motion.div>
         )}
