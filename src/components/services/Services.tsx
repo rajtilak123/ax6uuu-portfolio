@@ -29,7 +29,7 @@ const ServiceRow: React.FC<ServiceRowProps> = ({ service, index }) => {
         delay: shouldReduceMotion ? 0 : index * 0.08,
         ease: EASINGS.cinematic,
       }}
-      className="group relative block py-5 sm:py-6 lg:py-6 px-3 sm:px-4 -mx-3 sm:-mx-4 border-b border-black/[0.06] transition-all duration-200 hover:bg-black/[0.015] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric rounded-xl cursor-pointer"
+      className="group relative block py-5 sm:py-6 lg:py-6 px-3.5 sm:px-4 -mx-3.5 sm:-mx-4 border-b border-black/[0.14] transition-all duration-250 hover:bg-white hover:border-black/25 hover:shadow-[0_4px_16px_rgba(0,0,0,0.035)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric rounded-xl cursor-pointer"
       aria-label={`Inquire about ${service.title}`}
     >
       <div className="grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-4 lg:gap-8 items-start">
@@ -56,14 +56,14 @@ const ServiceRow: React.FC<ServiceRowProps> = ({ service, index }) => {
             {service.capabilities.map((capability) => (
               <span
                 key={capability}
-                className="inline-flex items-center px-2 py-0.5 rounded-[4px] bg-black/[0.025] border border-black/[0.04] text-[11px] font-mono text-[#5E606E] group-hover:text-[#0E0F14] transition-colors select-none"
+                className="inline-flex items-center px-2 py-0.5 rounded-[4px] bg-black/[0.03] border border-black/[0.08] text-[11px] font-mono text-[#5E606E] group-hover:text-[#0E0F14] transition-colors select-none"
               >
                 {capability}
               </span>
             ))}
           </div>
 
-          <div className="hidden md:flex w-7 h-7 rounded-full border border-black/10 items-center justify-center text-[#8E909E] group-hover:border-electric group-hover:bg-electric/10 group-hover:text-electric transition-all duration-200 shrink-0 mt-0.5">
+          <div className="hidden md:flex w-7 h-7 rounded-full border border-black/15 items-center justify-center text-[#8E909E] group-hover:border-electric group-hover:bg-electric/10 group-hover:text-electric transition-all duration-200 shrink-0 mt-0.5">
             <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </div>
         </div>
@@ -79,7 +79,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectProject }) => {
   return (
     <section
       id="services"
-      className="relative w-full py-16 sm:py-20 lg:py-24 bg-[#F9F9FB] border-t border-black/[0.06] overflow-hidden"
+      className="relative w-full py-16 sm:py-20 lg:py-24 bg-[#F9F9FB] border-t border-black/[0.14] overflow-hidden"
     >
       <Container>
         <div className="flex flex-col">
@@ -142,7 +142,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectProject }) => {
                   }
                 }}
                 aria-label={`View ${featuredProject.title} project`}
-                className="group relative w-full aspect-[16/10] sm:aspect-[16/9] lg:aspect-[16/10] rounded-2xl overflow-hidden bg-[#14161F] border border-black/[0.08] cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric transition-all duration-300 hover:border-electric hover:shadow-[0_12px_32px_rgba(38,59,255,0.12)] hover:-translate-y-0.5"
+                className="group relative w-full aspect-[16/10] sm:aspect-[16/9] lg:aspect-[16/10] rounded-2xl overflow-hidden bg-[#14161F] border border-black/[0.16] shadow-[0_6px_28px_rgba(0,0,0,0.06)] cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric transition-all duration-300 hover:border-electric hover:shadow-[0_16px_40px_rgba(38,59,255,0.18)] hover:-translate-y-0.5"
               >
                 {/* Actual Frame / Thumbnail from Verified Project */}
                 <img
@@ -177,7 +177,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectProject }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.55, ease: EASINGS.cinematic }}
-            className="mt-10 sm:mt-12 lg:mt-14 pb-3.5 border-b border-black/[0.08] select-none"
+            className="mt-10 sm:mt-12 lg:mt-14 pb-3.5 border-b border-black/[0.14] select-none"
           >
             <span className="font-mono text-xs font-semibold uppercase tracking-widest text-[#0E0F14]">
               Editing Disciplines

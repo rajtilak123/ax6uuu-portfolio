@@ -13,14 +13,14 @@ export const FreeSampleCta: React.FC = () => {
   const frameRight = HERO_PROJECTS[1]
 
   return (
-    <section className="relative w-full py-16 sm:py-20 lg:py-24 bg-[#F9F9FB] overflow-hidden border-t border-black/[0.06]">
+    <section className="relative w-full py-16 sm:py-20 lg:py-24 bg-[#F9F9FB] overflow-hidden border-t border-black/[0.14]">
       <Container>
         <motion.div
           initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 32 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.75, ease: EASINGS.cinematic }}
-          className="relative w-full rounded-3xl sm:rounded-[36px] bg-[#0A0C12] text-white p-8 sm:p-12 lg:p-16 overflow-hidden border border-white/10 shadow-[0_24px_64px_rgba(0,0,0,0.22)]"
+          className="relative w-full rounded-3xl sm:rounded-[36px] bg-[#0A0C12] text-white p-8 sm:p-12 lg:p-16 overflow-hidden border border-electric/45 hover:border-electric/70 shadow-[0_24px_64px_rgba(0,0,0,0.38),0_0_48px_rgba(38,59,255,0.16)] ring-1 ring-white/10 transition-all duration-300"
         >
           {/* Luminous Animated Accent Line Across Top Border */}
           {!shouldReduceMotion && (

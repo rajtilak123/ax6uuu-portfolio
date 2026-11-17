@@ -16,7 +16,7 @@ export const Contact: React.FC = () => {
   return (
     <section
       id="contact"
-      className="relative w-full pt-8 pb-12 sm:pt-10 sm:pb-14 lg:pt-12 lg:pb-16 scroll-mt-20 sm:scroll-mt-24 bg-[#F9F9FB] border-t border-black/[0.06] overflow-hidden"
+      className="relative w-full pt-8 pb-12 sm:pt-10 sm:pb-14 lg:pt-12 lg:pb-16 scroll-mt-20 sm:scroll-mt-24 bg-[#F9F9FB] border-t border-black/[0.14] overflow-hidden"
     >
       <Container>
         <div className="flex flex-col gap-8 sm:gap-12 lg:gap-14">
@@ -57,7 +57,7 @@ export const Contact: React.FC = () => {
             </div>
 
             {/* Right Column (~60%): 3 Clean Minimal Contact Rows */}
-            <div className="md:col-span-7 flex flex-col border-t border-black/[0.08]">
+            <div className="md:col-span-7 flex flex-col border-t border-black/[0.14]">
               {channels.map((channel, index) => (
                 <motion.a
                   key={channel.id}
@@ -72,7 +72,7 @@ export const Contact: React.FC = () => {
                     delay: shouldReduceMotion ? 0 : index * 0.08,
                     ease: EASINGS.cinematic,
                   }}
-                  className="group relative flex items-center justify-between py-5 sm:py-6 border-b border-black/[0.08] hover:border-black/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric transition-colors duration-250 cursor-pointer"
+                  className="group relative flex items-center justify-between py-5 sm:py-6 px-3.5 sm:px-4 -mx-3.5 sm:-mx-4 border-b border-black/[0.14] rounded-xl hover:bg-white hover:border-black/25 hover:shadow-[0_4px_16px_rgba(0,0,0,0.035)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric transition-all duration-250 cursor-pointer"
                   aria-label={`${channel.name}: ${channel.detail}`}
                 >
                   {/* Channel Name + Contact Detail */}
@@ -104,7 +104,7 @@ export const Contact: React.FC = () => {
               delay: shouldReduceMotion ? 0 : 0.15,
               ease: EASINGS.cinematic,
             }}
-            className="pt-6 sm:pt-8 border-t border-black/[0.08] flex items-center justify-end select-none"
+            className="pt-6 sm:pt-8 border-t border-black/[0.14] flex items-center justify-end select-none"
           >
             <button
               type="button"

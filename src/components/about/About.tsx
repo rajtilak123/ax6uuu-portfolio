@@ -33,7 +33,7 @@ export const About: React.FC = () => {
   return (
     <section
       id="about"
-      className="relative w-full pt-16 pb-16 sm:pt-20 sm:pb-20 lg:pt-24 lg:pb-20 bg-[#F9F9FB] border-t border-black/[0.06] overflow-hidden"
+      className="relative w-full pt-16 pb-16 sm:pt-20 sm:pb-20 lg:pt-24 lg:pb-20 bg-[#F9F9FB] border-t border-black/[0.14] overflow-hidden"
     >
       <Container>
         <div className="flex flex-col gap-12 sm:gap-14 lg:gap-16">
@@ -104,7 +104,7 @@ export const About: React.FC = () => {
           </div>
 
           {/* Integrated Editing Philosophy: 3 Editorial Panels */}
-          <div className="pt-8 sm:pt-10 border-t border-black/[0.08]">
+          <div className="pt-8 sm:pt-10 border-t border-black/[0.14]">
             <div className="pb-6 select-none">
               <span className="font-mono text-xs font-semibold text-electric uppercase tracking-widest">
                 Editing Philosophy
@@ -123,7 +123,7 @@ export const About: React.FC = () => {
                     delay: shouldReduceMotion ? 0 : index * 0.12,
                     ease: EASINGS.cinematic,
                   }}
-                  className="group p-5 sm:p-6 rounded-2xl bg-white border border-black/[0.08] hover:border-electric/50 transition-all duration-300 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_6px_20px_rgba(38,59,255,0.06)] hover:-translate-y-0.5 flex flex-col justify-between"
+                  className="group p-5 sm:p-6 rounded-2xl bg-white border border-black/[0.16] hover:border-electric transition-all duration-250 shadow-[0_2px_14px_rgba(0,0,0,0.035)] hover:shadow-[0_8px_28px_rgba(38,59,255,0.1)] hover:-translate-y-1 flex flex-col justify-between"
                 >
                   <div>
                     <h3 className="font-display text-base sm:text-lg font-semibold tracking-tight text-[#0E0F14] mb-2 group-hover:text-electric transition-colors duration-200">

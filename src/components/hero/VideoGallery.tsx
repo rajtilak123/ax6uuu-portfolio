@@ -187,10 +187,10 @@ const ShortFormCard: React.FC<ShortFormCardProps> = ({
     >
       {/* 9:16 Native Portrait Card Container */}
       <div
-        className={`relative w-full aspect-[9/16] rounded-2xl sm:rounded-3xl overflow-hidden bg-[#0A0C14] border transition-all duration-300 shadow-[0_4px_24px_rgba(0,0,0,0.04)] group-hover:-translate-y-1 ${
+        className={`relative w-full aspect-[9/16] rounded-2xl sm:rounded-3xl overflow-hidden bg-[#0A0C14] border transition-all duration-300 group-hover:-translate-y-1 group-hover:scale-[1.015] ${
           shouldPlay
-            ? 'border-electric shadow-[0_16px_40px_rgba(38,59,255,0.16)]'
-            : 'border-black/[0.08] group-hover:border-black/30 group-hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)]'
+            ? 'border-electric shadow-[0_16px_40px_rgba(38,59,255,0.2)]'
+            : 'border-black/[0.16] shadow-[0_4px_24px_rgba(0,0,0,0.06)] group-hover:border-electric group-hover:shadow-[0_16px_40px_rgba(38,59,255,0.18)]'
         }`}
       >
         {/* Permanent Crisp Poster Image (Always serves as base background, prevents black frame/spinner) */}
@@ -224,12 +224,12 @@ const ShortFormCard: React.FC<ShortFormCardProps> = ({
       </div>
 
       {/* Exterior Information Row */}
-      <div className="mt-3 flex items-center justify-between text-xs px-0.5">
+      <div className="mt-3.5 flex items-center justify-between text-xs px-1">
         <h3 className="font-display text-sm sm:text-base font-semibold tracking-tight text-[#0E0F14] group-hover:text-electric transition-colors duration-200">
           {project.title}
         </h3>
 
-        <span className="font-mono text-[11px] text-[#8E909E] group-hover:text-electric flex items-center gap-1 transition-colors">
+        <span className="font-mono text-[11px] text-[#5E606E] group-hover:text-electric flex items-center gap-1 transition-colors">
           <span>Watch</span>
           <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </span>
@@ -293,10 +293,10 @@ const LongFormCard: React.FC<LongFormCardProps> = ({
             onSelect()
           }
         }}
-        className={`group relative w-full aspect-[16/9] max-w-[880px] mx-auto rounded-2xl sm:rounded-3xl overflow-hidden bg-[#0A0C14] border transition-all duration-300 shadow-[0_6px_28px_rgba(0,0,0,0.05)] group-hover:-translate-y-1 cursor-pointer ${
+        className={`group relative w-full aspect-[16/9] max-w-[880px] mx-auto rounded-2xl sm:rounded-3xl overflow-hidden bg-[#0A0C14] border transition-all duration-300 group-hover:-translate-y-1 group-hover:scale-[1.01] cursor-pointer ${
           shouldPlay
-            ? 'border-electric shadow-[0_16px_40px_rgba(38,59,255,0.16)]'
-            : 'border-black/[0.08] group-hover:border-black/30 group-hover:shadow-[0_14px_36px_rgba(0,0,0,0.1)]'
+            ? 'border-electric shadow-[0_20px_48px_rgba(38,59,255,0.2)]'
+            : 'border-black/[0.16] shadow-[0_6px_28px_rgba(0,0,0,0.06)] group-hover:border-electric group-hover:shadow-[0_20px_48px_rgba(38,59,255,0.18)]'
         }`}
         aria-label={`Open ${project.title} video player`}
       >
@@ -363,7 +363,7 @@ export const VideoGallery: React.FC<VideoGalleryProps> = ({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.55, ease: EASINGS.cinematic }}
-        className="w-full pb-4 sm:pb-5 border-b border-black/[0.08] select-none mb-8 sm:mb-10 max-w-[1050px] mx-auto"
+        className="w-full pb-4 sm:pb-5 border-b border-black/[0.14] select-none mb-8 sm:mb-10 max-w-[1050px] mx-auto"
       >
         <div className="flex flex-col gap-1.5">
           <h2 className="font-display text-2xl sm:text-3xl font-semibold tracking-tight text-[#0E0F14]">
@@ -390,13 +390,13 @@ export const VideoGallery: React.FC<VideoGalleryProps> = ({
       </div>
 
       {/* 3. Compact Long-Form Section (850–900px centered) */}
-      <div className="mt-12 sm:mt-16 lg:mt-20 pt-8 sm:pt-12 border-t border-black/[0.08]">
+      <div className="mt-12 sm:mt-16 lg:mt-20 pt-8 sm:pt-12 border-t border-black/[0.14]">
         <motion.div
           initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.55, ease: EASINGS.cinematic }}
-          className="pb-4 sm:pb-5 border-b border-black/[0.08] select-none mb-8 sm:mb-10 max-w-[880px] mx-auto"
+          className="pb-4 sm:pb-5 border-b border-black/[0.14] select-none mb-8 sm:mb-10 max-w-[880px] mx-auto"
         >
           <div className="flex flex-col gap-1.5">
             <h2 className="font-display text-2xl sm:text-3xl font-semibold tracking-tight text-[#0E0F14]">

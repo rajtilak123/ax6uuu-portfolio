@@ -57,8 +57,8 @@ export const Navbar: React.FC = () => {
     <header
       className={`fixed top-0 inset-x-0 z-50 w-full transition-all duration-300 ${
         isScrolled
-          ? 'bg-[#F9F9FB]/80 backdrop-blur-md border-b border-black/[0.06] shadow-[0_4px_20px_rgba(0,0,0,0.02)]'
-          : 'bg-[#F9F9FB]/75 backdrop-blur-md border-b border-black/[0.04]'
+          ? 'bg-[#F9F9FB]/90 backdrop-blur-md border-b border-black/[0.18] shadow-[0_4px_24px_rgba(0,0,0,0.04)]'
+          : 'bg-[#F9F9FB]/85 backdrop-blur-md border-b border-black/[0.14]'
       }`}
     >
       <Container className="h-18 sm:h-20 flex items-center justify-between gap-4">
