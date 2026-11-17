@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowUpRight, Menu, X } from 'lucide-react'
 import { Wordmark } from '../brand/Wordmark'
+import { BrandAvatar } from '../brand/BrandAvatar'
 import { Container } from '../layout/Container'
-import { Button } from '../ui/Button'
 
 interface NavLink {
   label: string
@@ -54,64 +54,60 @@ export const Navbar: React.FC = () => {
 
   return (
     <header
-      className={`sticky top-0 z-40 w-full transition-colors duration-300 ${
+      className={`fixed top-0 inset-x-0 z-50 w-full transition-all duration-300 ${
         isScrolled
-          ? 'bg-[#F9F9FB]/90 backdrop-blur-md border-b border-black/[0.08] shadow-[0_4px_24px_rgba(0,0,0,0.03)]'
-          : 'bg-transparent border-b border-black/[0.06]'
+          ? 'bg-[#F9F9FB]/80 backdrop-blur-md border-b border-black/[0.06] shadow-[0_4px_20px_rgba(0,0,0,0.02)]'
+          : 'bg-[#F9F9FB]/75 backdrop-blur-md border-b border-black/[0.04]'
       }`}
     >
-      <Container className="h-18 sm:h-20 flex items-center justify-between">
-        {/* Left: Brand Wordmark + Professional Descriptor */}
-        <div className="flex items-center gap-3 sm:gap-4">
+      <Container className="h-18 sm:h-20 flex items-center justify-between gap-4">
+        {/* Left: Profile-Style Header [ X6 graphic avatar ] [ ax6uuu ] */}
+        <div className="flex items-center gap-2.5 sm:gap-3.5 shrink-0">
           <a
             href="#"
-            className="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric rounded-[4px]"
-            aria-label="AX6UUU Homepage"
+            className="flex items-center gap-2 sm:gap-2.5 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric rounded-lg"
+            aria-label="ax6uuu homepage"
           >
+            <BrandAvatar size="md" className="group-hover:scale-105 transition-transform duration-200" />
             <Wordmark variant="default" size="sm" />
           </a>
-          <span className="hidden sm:inline-block font-mono text-[10px] tracking-widest text-[#8E909E] uppercase pl-3 sm:pl-4 border-l border-black/10 select-none">
+          <span className="hidden lg:inline-block font-mono text-[10px] tracking-widest text-[#8E909E] uppercase pl-3 border-l border-black/10 select-none">
             Video Editor
           </span>
         </div>
 
-        {/* Center: Editorial Nav Links (Desktop) */}
+        {/* Middle: Editorial Nav Links (Desktop) */}
         <nav
-          className="hidden md:flex items-center gap-8 lg:gap-10"
+          className="hidden md:flex items-center gap-6 lg:gap-8"
           aria-label="Primary navigation"
         >
           {NAV_LINKS.map((link) => (
             <a
               key={link.label}
               href={link.href}
-              className="font-body text-sm font-normal text-[#5E606E] hover:text-[#0E0F14] transition-colors duration-200 relative py-1 focus-visible:outline-none focus-visible:text-[#0E0F14]"
+              className="font-body text-sm font-medium text-[#5E606E] hover:text-[#0E0F14] transition-colors duration-200 relative py-1 focus-visible:outline-none focus-visible:text-[#0E0F14]"
             >
               {link.label}
             </a>
           ))}
         </nav>
 
-        {/* Right: CTA & Mobile Toggle */}
-        <div className="flex items-center gap-3">
-          <div className="hidden sm:inline-flex">
-            <Button
-              variant="solid"
-              size="sm"
-              href="#contact"
-              rightIcon={
-                <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              }
-              className="group text-xs font-mono tracking-wider uppercase"
-            >
-              Let's Talk
-            </Button>
-          </div>
+        {/* Right: HIRE ME CTA + Mobile Drawer Toggle */}
+        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+          {/* HIRE ME (Navigates to #contact) */}
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-1.5 px-4 sm:px-5 py-2.5 rounded-full bg-[#0E0F14] text-white hover:bg-electric transition-colors duration-200 font-mono text-xs font-semibold tracking-wider uppercase shadow-[0_2px_8px_rgba(0,0,0,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric group"
+          >
+            <span>HIRE ME</span>
+            <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </a>
 
           {/* Mobile Menu Button (44x44px touch target) */}
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden inline-flex items-center justify-center w-11 h-11 rounded-[6px] text-[#0E0F14] hover:bg-black/5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric cursor-pointer"
+            className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg text-[#0E0F14] hover:bg-black/5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric cursor-pointer"
             aria-expanded={mobileMenuOpen}
             aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
           >
@@ -128,7 +124,7 @@ export const Navbar: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden fixed inset-x-0 top-18 bg-[#F9F9FB]/98 backdrop-blur-xl border-b border-black/10 shadow-2xl px-6 py-8 flex flex-col gap-6"
+            className="md:hidden fixed inset-x-0 top-18 bg-[#F9F9FB]/98 backdrop-blur-xl border-b border-black/10 shadow-2xl px-6 py-8 flex flex-col gap-6 z-50 max-h-[calc(100vh-4.5rem)] overflow-y-auto"
           >
             <nav className="flex flex-col gap-4" aria-label="Mobile navigation">
               {NAV_LINKS.map((link) => (
@@ -143,21 +139,20 @@ export const Navbar: React.FC = () => {
               ))}
             </nav>
 
-            <div className="pt-2">
-              <Button
-                variant="solid"
-                size="md"
+            {/* Mobile Actions: HIRE ME */}
+            <div className="flex flex-col gap-3 pt-2">
+              <a
                 href="#contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full justify-between"
-                rightIcon={<ArrowUpRight className="w-4 h-4" />}
+                className="w-full inline-flex items-center justify-between px-5 py-3.5 rounded-full bg-[#0E0F14] text-white font-mono text-xs font-semibold tracking-wider uppercase hover:bg-electric transition-colors shadow-md"
               >
-                Let's Talk
-              </Button>
+                <span>HIRE ME</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </a>
             </div>
 
-            <div className="pt-2 text-xs font-mono tracking-widest text-[#8E909E] uppercase flex items-center justify-between">
-              <span>ASHUTOSH SAHU</span>
+            <div className="pt-2 text-xs font-mono tracking-widest text-[#8E909E] uppercase flex items-center justify-between border-t border-black/[0.06]">
+              <span>ax6uuu • Ashutosh Sahu</span>
               <span>2026</span>
             </div>
           </motion.div>

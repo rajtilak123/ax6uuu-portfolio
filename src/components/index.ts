@@ -1,5 +1,6 @@
 // Brand
 export { Wordmark, type WordmarkProps } from './brand/Wordmark'
+export { BrandAvatar, type BrandAvatarProps } from './brand/BrandAvatar'
 export {
   WORDMARK_VIEWBOX,
   WORDMARK_ASPECT_RATIO,
@@ -32,11 +33,13 @@ export { VideoModal, type VideoModalProps } from './video/VideoModal'
 
 // About & Introduction
 export { About } from './about/About'
-export { AboutVisual } from './about/AboutVisual'
 export { Philosophy } from './about/Philosophy'
 
 // Services & Capabilities
 export { Services, type ServicesProps } from './services/Services'
+
+// Free Sample CTA
+export { FreeSampleCta } from './cta/FreeSampleCta'
 
 // The Final Cut / Contact
 export { Contact } from './contact/Contact'

@@ -24,7 +24,7 @@ export const Container: React.FC<ContainerProps> = ({
   const combinedClasses = [
     'w-full mx-auto',
     sizeClasses[size],
-    !noPadding ? 'px-4 sm:px-6 md:px-8 lg:px-12' : '',
+    !noPadding ? 'px-5 sm:px-8 md:px-10 lg:px-14 xl:px-16' : '',
     className,
   ]
     .filter(Boolean)

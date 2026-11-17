@@ -16,147 +16,151 @@ export const Contact: React.FC = () => {
   return (
     <section
       id="contact"
-      className="relative w-full pt-8 pb-10 sm:pt-9 sm:pb-12 lg:pt-10 lg:pb-14 bg-[#F9F9FB] border-t border-black/[0.06] overflow-hidden"
+      className="relative w-full pt-6 pb-12 sm:pt-8 sm:pb-14 lg:pt-10 lg:pb-16 scroll-mt-20 sm:scroll-mt-24 bg-[#F9F9FB] border-t border-black/[0.06] overflow-hidden"
     >
       <Container>
-        <div className="flex flex-col gap-10 sm:gap-12 lg:gap-16">
-          {/* Top Block: Section Index + Expressive Monumental Headlines */}
-          <div className="flex flex-col gap-4 sm:gap-5 max-w-5xl">
-            {/* Monospace Section Tag */}
-            <motion.div
-              initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.55, ease: EASINGS.cinematic }}
-              className="flex items-center gap-2.5 text-xs font-mono select-none"
-            >
-              <span className="font-semibold text-electric tracking-widest uppercase">
-                04
-              </span>
-              <span className="text-black/20">/</span>
-              <span className="text-[#5E606E] tracking-widest uppercase">
-                The Final Frame
-              </span>
-            </motion.div>
-
-            {/* Main Primary Headline */}
-            <motion.h2
-              initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{
-                duration: 0.7,
-                delay: shouldReduceMotion ? 0 : 0.1,
-                ease: EASINGS.cinematic,
-              }}
-              className="font-display text-[clamp(2.5rem,6.5vw,5.5rem)] leading-[0.98] tracking-[-0.035em] font-medium text-[#0E0F14]"
-            >
-              Every great edit <br />
-              starts with a conversation.
-            </motion.h2>
-
-            {/* Second Headline with Restrained Electric Blue Emphasis */}
-            <motion.p
-              initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{
-                duration: 0.7,
-                delay: shouldReduceMotion ? 0 : 0.22,
-                ease: EASINGS.cinematic,
-              }}
-              className="font-display text-[clamp(1.5rem,3.5vw,2.75rem)] leading-[1.1] tracking-[-0.025em] font-normal text-[#5E606E]"
-            >
-              Let's create{' '}
-              <span className="text-electric font-medium">
-                something worth watching.
-              </span>
-            </motion.p>
-          </div>
-
-          {/* Interactive Contact Channels: Four Large Horizontal Editorial Links */}
-          <div className="w-full flex flex-col border-t border-black/[0.08]">
-            {channels.map((channel, index) => (
-              <motion.a
-                key={channel.id}
-                href={channel.isDemo ? undefined : channel.href}
-                target={!channel.isDemo && channel.id !== 'email' ? '_blank' : undefined}
-                rel={!channel.isDemo && channel.id !== 'email' ? 'noopener noreferrer' : undefined}
-                onClick={(e) => {
-                  if (channel.isDemo) {
-                    e.preventDefault()
-                  }
-                }}
-                role={channel.isDemo ? 'button' : undefined}
-                tabIndex={0}
-                onKeyDown={(e) => {
-                  if (channel.isDemo && (e.key === 'Enter' || e.key === ' ')) {
-                    e.preventDefault()
-                  }
-                }}
-                initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 24 }}
+        <div className="flex flex-col gap-8 sm:gap-12 lg:gap-14">
+          {/* Main 2-Column Editorial Grid: Left (40%) × Right (60%) */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 lg:gap-16 items-start">
+            {/* Left Column (~40%): Contact Introduction */}
+            <div className="md:col-span-5 flex flex-col gap-4 sm:gap-5">
+              {/* Monospace Section Tag */}
+              <motion.div
+                initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 14 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.15 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.5, ease: EASINGS.cinematic }}
+                className="flex items-center gap-2.5 text-xs font-mono select-none"
+              >
+                <span className="font-semibold text-electric tracking-widest uppercase">
+                  04
+                </span>
+                <span className="text-black/20">/</span>
+                <span className="text-[#5E606E] tracking-widest uppercase">
+                  THE FINAL FRAME
+                </span>
+              </motion.div>
+
+              {/* Controlled Editorial Heading */}
+              <motion.h2
+                initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
                 transition={{
                   duration: 0.65,
-                  delay: shouldReduceMotion ? 0 : index * 0.12,
+                  delay: shouldReduceMotion ? 0 : 0.08,
                   ease: EASINGS.cinematic,
                 }}
-                className="group relative flex items-center justify-between py-6 sm:py-8 lg:py-9 border-b border-black/[0.08] hover:border-black/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric transition-colors duration-200 cursor-pointer"
-                aria-label={`${channel.number} ${channel.name}: ${channel.detail}${channel.isDemo ? ' (Demo Preview)' : ''}`}
+                className="font-display text-3xl sm:text-4xl lg:text-[2.75rem] leading-[1.12] tracking-[-0.025em] font-semibold text-[#0E0F14]"
               >
-                {/* Left Block: Channel Number + Channel Name + Contact Detail */}
-                <div className="flex flex-col md:flex-row md:items-baseline gap-1.5 md:gap-6 lg:gap-8 pr-4">
-                  <div className="flex items-baseline gap-3 sm:gap-4">
-                    <span className="font-mono text-sm sm:text-base font-semibold text-electric tracking-widest select-none">
-                      {channel.number} —
-                    </span>
-                    <span className="font-display text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-[#0E0F14] group-hover:text-electric transition-colors duration-200">
-                      {channel.name}
-                    </span>
+                Let's make something <br className="hidden sm:inline" />
+                <span className="text-electric">worth watching.</span>
+              </motion.h2>
+
+              {/* Supporting Copy */}
+              <motion.p
+                initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{
+                  duration: 0.65,
+                  delay: shouldReduceMotion ? 0 : 0.16,
+                  ease: EASINGS.cinematic,
+                }}
+                className="font-body text-base sm:text-lg leading-relaxed text-[#5E606E] max-w-md"
+              >
+                Have a video in mind? Tell me about it. Let's create something memorable.
+              </motion.p>
+
+              {/* Availability Indicator */}
+              <motion.div
+                initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{
+                  duration: 0.5,
+                  delay: shouldReduceMotion ? 0 : 0.24,
+                  ease: EASINGS.cinematic,
+                }}
+                className="pt-2 flex items-center gap-2.5 text-xs font-mono text-[#5E606E]"
+              >
+                <span className="w-2 h-2 rounded-full bg-electric animate-pulse" />
+                <span className="tracking-widest uppercase font-medium">AVAILABLE FOR PROJECTS</span>
+              </motion.div>
+            </div>
+
+            {/* Right Column (~60%): 3 Elegant Horizontal Contact Rows */}
+            <div className="md:col-span-7 flex flex-col border-t border-black/[0.08]">
+              {channels.map((channel, index) => (
+                <motion.a
+                  key={channel.id}
+                  href={channel.href}
+                  target={channel.external ? '_blank' : undefined}
+                  rel={channel.external ? 'noopener noreferrer' : undefined}
+                  initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.15 }}
+                  transition={{
+                    duration: 0.55,
+                    delay: shouldReduceMotion ? 0 : index * 0.08,
+                    ease: EASINGS.cinematic,
+                  }}
+                  className="group relative flex items-center justify-between py-5 sm:py-6 border-b border-black/[0.08] hover:border-black/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric transition-all duration-250 cursor-pointer"
+                  aria-label={`${channel.number} ${channel.name}: ${channel.detail}`}
+                >
+                  {/* Left: Number + Channel Name + Contact Detail */}
+                  <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6 lg:gap-8 pr-4 min-w-0 transition-transform duration-250 group-hover:translate-x-1">
+                    <div className="flex items-baseline gap-3 shrink-0">
+                      <span className="font-mono text-xs sm:text-sm font-semibold text-electric tracking-widest select-none">
+                        {channel.number} —
+                      </span>
+                      <span className="font-display text-lg sm:text-xl font-medium tracking-tight text-[#0E0F14] group-hover:text-electric transition-colors duration-250">
+                        {channel.name}
+                      </span>
+                    </div>
+
+                    {/* Contact Detail with safe wrapping on mobile */}
+                    <div className="flex items-center gap-2 pl-6 sm:pl-0 min-w-0">
+                      <span className="hidden sm:inline-block text-black/20 select-none">/</span>
+                      <span className="font-mono text-xs sm:text-sm text-[#5E606E] group-hover:text-[#0E0F14] transition-colors duration-250 break-all sm:break-normal">
+                        {channel.detail}
+                      </span>
+                    </div>
                   </div>
 
-                  {/* Prominent Contact Detail */}
-                  <div className="flex items-center gap-2 pl-7 md:pl-0">
-                    <span className="hidden md:inline-block text-black/20 select-none">/</span>
-                    <span className="font-mono text-sm sm:text-base lg:text-lg text-[#5E606E] group-hover:text-[#0E0F14] transition-colors duration-200">
-                      {channel.detail}
-                    </span>
+                  {/* Right: Minimal Circular Arrow Icon */}
+                  <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-black/10 flex items-center justify-center text-[#5E606E] group-hover:border-electric group-hover:bg-electric/10 group-hover:text-electric transition-all duration-250 shrink-0 ml-4">
+                    <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform duration-250 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </div>
-                </div>
-
-                {/* Right Block: Large Smooth Arrow Indicator */}
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-black/10 flex items-center justify-center text-[#5E606E] group-hover:border-electric group-hover:bg-electric group-hover:text-white transition-all duration-300 shrink-0 ml-4">
-                  <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" />
-                </div>
-              </motion.a>
-            ))}
+                </motion.a>
+              ))}
+            </div>
           </div>
 
           {/* Minimal Editorial Footer */}
           <motion.footer
-            initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 16 }}
+            initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{
-              duration: 0.6,
-              delay: shouldReduceMotion ? 0 : 0.2,
+              duration: 0.5,
+              delay: shouldReduceMotion ? 0 : 0.15,
               ease: EASINGS.cinematic,
             }}
-            className="pt-6 sm:pt-8 border-t border-black/[0.08] flex items-center justify-between text-xs font-mono text-[#8E909E] select-none"
+            className="pt-6 sm:pt-8 border-t border-black/[0.08] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#8E909E] select-none"
           >
             {/* Left: Copyright */}
-            <span>© {new Date().getFullYear()} AX6UUU</span>
+            <span>© {new Date().getFullYear()} ax6uuu</span>
 
             {/* Right: Designed with Intention + Back to Top */}
             <div className="flex items-center gap-4 sm:gap-6">
-              <span className="tracking-widest uppercase text-[11px] sm:text-xs">
+              <span className="tracking-widest uppercase text-[10px] sm:text-xs">
                 DESIGNED WITH INTENTION.
               </span>
               <button
                 type="button"
                 onClick={scrollToTop}
-                className="hidden sm:inline-flex items-center justify-center w-8 h-8 -mr-1.5 text-[#5E606E] hover:text-[#0E0F14] hover:bg-black/5 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric rounded-[4px]"
+                className="inline-flex items-center justify-center w-8 h-8 -mr-1.5 text-[#5E606E] hover:text-[#0E0F14] hover:bg-black/5 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric rounded-[4px]"
                 aria-label="Back to top of page"
               >
                 <ArrowUp className="w-3.5 h-3.5" />

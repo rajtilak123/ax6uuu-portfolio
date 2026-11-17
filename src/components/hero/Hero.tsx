@@ -3,19 +3,20 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowUpRight, ArrowDown } from 'lucide-react'
 import { Container } from '../layout/Container'
 import { Button } from '../ui/Button'
-import { Badge } from '../ui/Badge'
 import { VideoGallery } from './VideoGallery'
 import type { ProjectItem } from '../../data/projects'
 import { EASINGS } from '../../lib/animations'
 
 export interface HeroProps {
   onSelectProject: (project: ProjectItem) => void
+  isModalOpen?: boolean
   onExploreClick?: () => void
   onContactClick?: () => void
 }
 
 export const Hero: React.FC<HeroProps> = ({
   onSelectProject,
+  isModalOpen,
   onContactClick,
 }) => {
   const shouldReduceMotion = useReducedMotion()
@@ -44,7 +45,7 @@ export const Hero: React.FC<HeroProps> = ({
   }
 
   return (
-    <section className="relative w-full pt-8 pb-16 sm:pt-12 sm:pb-24 lg:pt-16 lg:pb-32 bg-[#F9F9FB] overflow-hidden">
+    <section className="relative w-full bg-[#F9F9FB] overflow-hidden">
       {/* Restrained Ambient Tint (Extremely subtle, no loud blobs) */}
       <div
         className="absolute top-0 right-1/4 w-[500px] h-[300px] pointer-events-none opacity-30"
@@ -55,85 +56,90 @@ export const Hero: React.FC<HeroProps> = ({
         aria-hidden="true"
       />
 
-      <Container>
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="flex flex-col gap-10 sm:gap-14 lg:gap-16"
-        >
-          {/* Top Meta Bar: Availability + Editorial Coordinates */}
+      {/* Screen 1: Hero Opening Viewport (Exclusively about the Hero) */}
+      <div className="relative w-full pt-18 sm:pt-20">
+        <Container>
           <motion.div
-            variants={itemVariants}
-            className="flex items-center justify-between border-b border-black/[0.08] pb-4 text-xs font-mono select-none"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="min-h-[calc(100vh-4.5rem)] sm:min-h-[calc(100vh-5rem)] min-h-[calc(100svh-4.5rem)] sm:min-h-[calc(100svh-5rem)] flex flex-col justify-between pt-4 pb-8 sm:pt-6 sm:pb-12 lg:pt-8 lg:pb-14"
           >
-            <Badge
-              variant="default"
-              dot
-              dotColor="electric"
-              className="text-[#0E0F14] text-[11px]"
-            >
-              Available for Projects
-            </Badge>
-
-            <div className="hidden sm:flex items-center gap-3 text-[#5E606E] text-[11px] tracking-widest uppercase">
-              <span>ASHUTOSH SAHU</span>
-              <span className="text-black/20">&bull;</span>
-              <span>CINEMATIC EDITORIAL</span>
-              <span className="text-black/20">&bull;</span>
-              <span className="text-electric font-medium">2026</span>
-            </div>
-          </motion.div>
-
-          {/* Monumental Editorial Headline Block */}
-          <div className="flex flex-col gap-6 sm:gap-8 max-w-5xl">
-            <motion.h1
+            {/* Top Meta Bar: Quiet Availability + Context Coordinates */}
+            <motion.div
               variants={itemVariants}
-              className="font-display text-[clamp(2.75rem,7vw,6.5rem)] leading-[0.96] tracking-[-0.035em] font-medium text-[#0E0F14]"
+              className="flex items-center justify-between border-b border-black/[0.06] pb-3.5 text-xs font-mono select-none"
             >
-              Turning raw footage <br />
-              into <span className="text-electric">clean edits.</span>
-            </motion.h1>
+              <div className="flex items-center gap-2 text-[#5E606E] text-[11px] tracking-wide">
+                <span className="w-1.5 h-1.5 rounded-full bg-electric animate-pulse" />
+                <span>Available for Projects</span>
+              </div>
 
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 pt-2">
+              <div className="hidden sm:flex items-center gap-2.5 text-[#8E909E] text-[11px] tracking-wider uppercase">
+                <span>Ashutosh Sahu</span>
+                <span className="text-black/15">•</span>
+                <span>Video Editor</span>
+                <span className="text-black/15">•</span>
+                <span>2026</span>
+              </div>
+            </motion.div>
+
+            {/* Refined Headline Block with Clear Stack Hierarchy */}
+            <div className="flex flex-col gap-5 sm:gap-6 max-w-5xl my-auto py-6 sm:py-8">
+              <motion.h1
+                variants={itemVariants}
+                className="font-display text-[clamp(2.5rem,5.7vw,5.125rem)] leading-[1.06] tracking-[-0.03em] font-bold text-[#0E0F14]"
+              >
+                Turning raw footage <br />
+                into <span className="text-electric">clean edits.</span>
+              </motion.h1>
+
               <motion.p
                 variants={itemVariants}
-                className="font-body text-base sm:text-lg lg:text-xl text-[#5E606E] font-normal leading-relaxed max-w-2xl"
+                className="font-body text-[17px] sm:text-[19px] lg:text-[22px] text-[#5E606E] font-normal leading-relaxed max-w-2xl pt-1"
               >
                 I craft engaging visual stories through thoughtful editing, precise pacing and cinematic detail.
               </motion.p>
 
               <motion.div
                 variants={itemVariants}
-                className="flex items-center gap-3 shrink-0"
+                className="flex items-center gap-3.5 pt-2 sm:pt-3"
               >
                 <Button
                   variant="solid"
-                  size="md"
+                  size="lg"
                   href="#contact"
                   onClick={onContactClick}
-                  rightIcon={<ArrowUpRight className="w-4 h-4" />}
+                  rightIcon={<ArrowUpRight className="w-4.5 h-4.5" />}
                 >
                   Start a Project
                 </Button>
                 <Button
                   variant="secondary"
-                  size="md"
+                  size="lg"
                   href="#work"
-                  rightIcon={<ArrowDown className="w-4 h-4" />}
+                  rightIcon={<ArrowDown className="w-4.5 h-4.5" />}
                 >
                   View Works
                 </Button>
               </motion.div>
             </div>
-          </div>
 
-          {/* Featured Video Gallery (Editorial 4-Card Presentation) */}
-          <motion.div variants={itemVariants} id="work">
-            <VideoGallery onSelectProject={onSelectProject} />
+            {/* Empty anchor spacer to balance flex distribution */}
+            <div className="h-2 sm:h-4" aria-hidden="true" />
           </motion.div>
-        </motion.div>
-      </Container>
+        </Container>
+      </div>
+
+      {/* Screen 2+: Featured Video Gallery (Short-Form & Long-Form Presentation) */}
+      <div
+        id="work"
+        className="relative w-full pt-8 sm:pt-12 lg:pt-14 pb-18 sm:pb-24 lg:pb-28 scroll-mt-20 sm:scroll-mt-24"
+      >
+        <Container>
+          <VideoGallery onSelectProject={onSelectProject} isModalOpen={isModalOpen} />
+        </Container>
+      </div>
     </section>
   )
 }

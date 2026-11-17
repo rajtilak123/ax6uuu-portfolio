@@ -4,6 +4,7 @@ import { Navbar } from './components/navigation/Navbar'
 import { Hero } from './components/hero/Hero'
 import { About } from './components/about/About'
 import { Services } from './components/services/Services'
+import { FreeSampleCta } from './components/cta/FreeSampleCta'
 import { Contact } from './components/contact/Contact'
 import { VideoModal } from './components/video/VideoModal'
 import type { ProjectItem } from './data/projects'
@@ -30,13 +31,14 @@ function App() {
 
         {/* Main Content Landmark */}
         <main className="flex-1">
-          <Hero onSelectProject={handleSelectProject} />
+          <Hero onSelectProject={handleSelectProject} isModalOpen={isModalOpen} />
           <About />
           <Services onSelectProject={handleSelectProject} />
+          <FreeSampleCta />
           <Contact />
         </main>
 
-        {/* Global Cinema Video Modal Player */}
+        {/* Global Cinema Video Lightbox */}
         <VideoModal
           project={selectedProject}
           isOpen={isModalOpen}
